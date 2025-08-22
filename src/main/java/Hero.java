@@ -15,8 +15,12 @@ public class Hero {
                 messages.getList();
             } else if (input.toLowerCase().startsWith("mark ")) {
                 String[] parts = input.split(" ");
-                int taskNumber = Integer.parseInt(parts[1]);
-                messages.mark(taskNumber);
+                try {
+                    int taskNumber = Integer.parseInt(parts[1]);
+                    messages.mark(taskNumber);
+                } catch (NumberFormatException e) {
+                    MessageHandler.sendMessage("Invalid task number!");
+                }
             } else {
                 messages.addToList(input);
             }
