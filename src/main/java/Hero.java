@@ -9,16 +9,22 @@ public class Hero {
         System.out.println("What can I do for you?");
         System.out.println(LINE);
 
+        String[] strings = new String[100];
+        int count = 0;
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("bye")) {
                 break;
+            } else if (input.equalsIgnoreCase("list")) {
+                for (int i = 0; i < count; i++) {
+                    System.out.println((i + 1) + ". " + strings[i]);
+                }
             } else {
-                System.out.println(LINE);
-                System.out.println(input);
-                System.out.println(LINE);
+                strings[count] = input;
+                System.out.println("added: " + input);
+                count++;
             }
         }
         scanner.close();
