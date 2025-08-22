@@ -1,9 +1,9 @@
 public class List {
-    private String[] list;
+    private Task[] list;
     private int count;
 
     public List() {
-        list = new String[100];
+        list = new Task[100];
         count = 0;
     }
 
@@ -12,8 +12,9 @@ public class List {
     }
 
     public void addToList(String message) {
-        list[count] = message;
+        Task newTask = new Task(message);
+        list[count] = newTask;
         count++;
-        MessageHandler.sendMessage("added: " + message);
+        MessageHandler.sendMessage("Added Task: " + message);
     }
 }
