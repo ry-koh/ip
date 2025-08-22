@@ -17,4 +17,13 @@ public class List {
         count++;
         MessageHandler.sendMessage("Added Task: " + message);
     }
+
+    public void mark(int taskNumber) {
+        if (taskNumber >= 1 && taskNumber <= count) {
+            list[taskNumber - 1].setDone(true);
+            MessageHandler.sendMessage("Nice! I've marked this task as done:", "[X] " + list[taskNumber - 1].getName());
+            return;
+        }
+        MessageHandler.sendMessage("There is no such task number!");
+    }
 }

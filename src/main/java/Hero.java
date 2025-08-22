@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Hero {
     public static void main(String[] args) {
-        MessageHandler.sendMessage("Hello! I'm Hero\nWhat can I do for you?");
+        MessageHandler.sendMessage("Hello! I'm Hero", "What can I do for you?");
 
         List messages = new List();
         Scanner scanner = new Scanner(System.in);
@@ -13,6 +13,10 @@ public class Hero {
                 break;
             } else if (input.equalsIgnoreCase("list")) {
                 messages.getList();
+            } else if (input.toLowerCase().startsWith("mark ")) {
+                String[] parts = input.split(" ");
+                int taskNumber = Integer.parseInt(parts[1]);
+                messages.mark(taskNumber);
             } else {
                 messages.addToList(input);
             }

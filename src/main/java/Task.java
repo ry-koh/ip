@@ -14,4 +14,8 @@ public class Task {
     public Boolean getDone() {
         return done;
     }
+
+    public void setDone(Boolean done) {
+        this.done = done;
+    }
 }
