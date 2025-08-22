@@ -11,6 +11,10 @@ public class List {
         MessageHandler.sendList(count, list);
     }
 
+    public int getCount() {
+        return count;
+    }
+
     public void addToList(String message) {
         Task newTask = new Task(message);
         list[count] = newTask;
@@ -19,11 +23,14 @@ public class List {
     }
 
     public void mark(int taskNumber) {
-        if (taskNumber >= 1 && taskNumber <= count) {
-            list[taskNumber - 1].setDone(true);
-            MessageHandler.sendMessage("Nice! I've marked this task as done:", "[X] " + list[taskNumber - 1].getName());
-            return;
-        }
-        MessageHandler.sendMessage("There is no such task number!");
+        list[taskNumber - 1].setDone(true);
+        MessageHandler.sendMessage("Nice! I've marked this task as done:", "[X] " + list[taskNumber - 1].getName());
+        return;
+    }
+
+    public void unmark(int taskNumber) {
+        list[taskNumber - 1].setDone(false);
+        MessageHandler.sendMessage("OK, I've marked this task as not done yet:", "[ ] " + list[taskNumber - 1].getName());
+        return;
     }
 }

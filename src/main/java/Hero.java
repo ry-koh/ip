@@ -17,7 +17,23 @@ public class Hero {
                 String[] parts = input.split(" ");
                 try {
                     int taskNumber = Integer.parseInt(parts[1]);
-                    messages.mark(taskNumber);
+                    if (taskNumber >= 1 && taskNumber <= messages.getCount()) {
+                        messages.mark(taskNumber);
+                    } else {
+                        MessageHandler.sendMessage("There is no such task number!");
+                    }
+                } catch (NumberFormatException e) {
+                    MessageHandler.sendMessage("Invalid task number!");
+                }
+            } else if (input.toLowerCase().startsWith("unmark ")) {
+                String[] parts = input.split(" ");
+                try {
+                    int taskNumber = Integer.parseInt(parts[1]);
+                    if (taskNumber >= 1 && taskNumber <= messages.getCount()) {
+                        messages.unmark(taskNumber);
+                    } else {
+                        MessageHandler.sendMessage("There is no such task number!");
+                    }
                 } catch (NumberFormatException e) {
                     MessageHandler.sendMessage("Invalid task number!");
                 }
