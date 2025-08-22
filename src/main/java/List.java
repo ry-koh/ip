@@ -33,4 +33,13 @@ public class List {
         MessageHandler.sendMessage("OK, I've marked this task as not done yet:", "[ ] " + list[taskNumber - 1].getName());
         return;
     }
+
+    public void deleteFromList(int taskNumber) {
+        String deletedTask = list[taskNumber - 1].getName();
+        for (int i = taskNumber - 1; i < count; i++) {
+            list[i] = list[i + 1];
+        }
+        count--;
+        MessageHandler.sendMessage("Deleted Task: " + deletedTask);
+    }
 }

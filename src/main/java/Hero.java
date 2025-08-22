@@ -37,6 +37,18 @@ public class Hero {
                 } catch (NumberFormatException e) {
                     MessageHandler.sendMessage("Invalid task number!");
                 }
+            } else if (input.toLowerCase().startsWith("delete ")) {
+                String[] parts = input.split(" ");
+                try {
+                    int taskNumber = Integer.parseInt(parts[1]);
+                    if (taskNumber >= 1 && taskNumber <= messages.getCount()) {
+                        messages.deleteFromList(taskNumber);
+                    } else {
+                        MessageHandler.sendMessage("There is no such task number!");
+                    }
+                } catch (NumberFormatException e) {
+                    MessageHandler.sendMessage("Invalid task number!");
+                }
             } else {
                 messages.addToList(input);
             }

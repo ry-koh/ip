@@ -10,6 +10,10 @@ public class MessageHandler {
     }
 
     public static void sendList(int count, Task[] taskList) {
+        if (count == 0) {
+            sendMessage("List is empty!");
+            return;
+        }
         System.out.println(LINE);
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < count; i++) {
