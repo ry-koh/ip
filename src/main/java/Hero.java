@@ -4,8 +4,7 @@ public class Hero {
     public static void main(String[] args) {
         MessageHandler.sendMessage("Hello! I'm Hero\nWhat can I do for you?");
 
-        String[] strings = new String[100];
-        int count = 0;
+        List messages = new List();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -13,13 +12,9 @@ public class Hero {
             if (input.equalsIgnoreCase("bye")) {
                 break;
             } else if (input.equalsIgnoreCase("list")) {
-                for (int i = 0; i < count; i++) {
-                    System.out.println((i + 1) + ". " + strings[i]);
-                }
+                messages.getList();
             } else {
-                strings[count] = input;
-                MessageHandler.sendMessage("added: " + input);
-                count++;
+                messages.addToList(input);
             }
         }
         scanner.close();
