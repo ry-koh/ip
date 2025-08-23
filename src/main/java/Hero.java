@@ -14,40 +14,19 @@ public class Hero {
             } else if (input.equalsIgnoreCase("list")) {
                 messages.getList();
             } else if (input.toLowerCase().startsWith("mark ")) {
-                String[] parts = input.split(" ");
-                try {
-                    int taskNumber = Integer.parseInt(parts[1]);
-                    if (taskNumber >= 1 && taskNumber <= messages.getCount()) {
-                        messages.mark(taskNumber);
-                    } else {
-                        MessageHandler.sendMessage("There is no such task number!");
-                    }
-                } catch (NumberFormatException e) {
-                    MessageHandler.sendMessage("Invalid task number!");
+                int taskNumber = parseAndValidateTaskNumber(input, messages.getCount());
+                if (taskNumber != -1) {
+                    messages.mark(taskNumber);
                 }
             } else if (input.toLowerCase().startsWith("unmark ")) {
-                String[] parts = input.split(" ");
-                try {
-                    int taskNumber = Integer.parseInt(parts[1]);
-                    if (taskNumber >= 1 && taskNumber <= messages.getCount()) {
-                        messages.unmark(taskNumber);
-                    } else {
-                        MessageHandler.sendMessage("There is no such task number!");
-                    }
-                } catch (NumberFormatException e) {
-                    MessageHandler.sendMessage("Invalid task number!");
+                int taskNumber = parseAndValidateTaskNumber(input, messages.getCount());
+                if (taskNumber != -1) {
+                    messages.unmark(taskNumber);
                 }
             } else if (input.toLowerCase().startsWith("delete ")) {
-                String[] parts = input.split(" ");
-                try {
-                    int taskNumber = Integer.parseInt(parts[1]);
-                    if (taskNumber >= 1 && taskNumber <= messages.getCount()) {
-                        messages.deleteFromList(taskNumber);
-                    } else {
-                        MessageHandler.sendMessage("There is no such task number!");
-                    }
-                } catch (NumberFormatException e) {
-                    MessageHandler.sendMessage("Invalid task number!");
+                int taskNumber = parseAndValidateTaskNumber(input, messages.getCount());
+                if (taskNumber != -1) {
+                    messages.deleteFromList(taskNumber);
                 }
             } else {
                 messages.addToList(input);
@@ -55,5 +34,26 @@ public class Hero {
         }
         scanner.close();
         MessageHandler.sendMessage("Bye. Hope to see you again soon!");
+    }
+
+    private static int parseAndValidateTaskNumber(String input, int max) {
+        String[] parts = input.split(" ");
+
+        if (parts.length < 2) {
+            MessageHandler.sendMessage("Please provide a task number!");
+            return -1;
+        }
+
+        try {
+            int taskNumber = Integer.parseInt(parts[1]);
+            if (taskNumber >= 1 && taskNumber <= max) {
+                return taskNumber;
+            } else {
+                MessageHandler.sendMessage("There is no such task number!");
+            }
+        } catch (NumberFormatException e) {
+            MessageHandler.sendMessage("Invalid task number!");
+        }
+        return -1;
     }
 }
