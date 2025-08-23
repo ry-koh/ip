@@ -11,24 +11,35 @@ public class Hero {
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("bye")) {
                 break;
-            } else if (input.equalsIgnoreCase("list")) {
+            }
+
+            String[] parts = input.split(" ", 2);
+            String command = parts[0].toLowerCase();
+            int taskNumber;
+
+            switch (command) {
+            case "list":
                 messages.getList();
-            } else if (input.toLowerCase().startsWith("mark ")) {
-                int taskNumber = parseAndValidateTaskNumber(input, messages.getCount());
+                break;
+            case "mark":
+                taskNumber = parseAndValidateTaskNumber(parts, messages.getCount());
                 if (taskNumber != -1) {
                     messages.mark(taskNumber);
                 }
-            } else if (input.toLowerCase().startsWith("unmark ")) {
-                int taskNumber = parseAndValidateTaskNumber(input, messages.getCount());
+                break;
+            case "unmark":
+                taskNumber = parseAndValidateTaskNumber(parts, messages.getCount());
                 if (taskNumber != -1) {
                     messages.unmark(taskNumber);
                 }
-            } else if (input.toLowerCase().startsWith("delete ")) {
-                int taskNumber = parseAndValidateTaskNumber(input, messages.getCount());
+                break;
+            case "delete":
+                taskNumber = parseAndValidateTaskNumber(parts, messages.getCount());
                 if (taskNumber != -1) {
                     messages.deleteFromList(taskNumber);
                 }
-            } else {
+                break;
+            default:
                 messages.addToList(input);
             }
         }
@@ -36,14 +47,11 @@ public class Hero {
         MessageHandler.sendMessage("Bye. Hope to see you again soon!");
     }
 
-    private static int parseAndValidateTaskNumber(String input, int max) {
-        String[] parts = input.split(" ");
-
+    private static int parseAndValidateTaskNumber(String[] parts, int max) {
         if (parts.length < 2) {
             MessageHandler.sendMessage("Please provide a task number!");
             return -1;
         }
-
         try {
             int taskNumber = Integer.parseInt(parts[1]);
             if (taskNumber >= 1 && taskNumber <= max) {
