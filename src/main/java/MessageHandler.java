@@ -17,12 +17,46 @@ public class MessageHandler {
         System.out.println(LINE);
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < count; i++) {
-            if (taskList[i].getDone()) {
-                System.out.println((i + 1) + ".[X] " + taskList[i].getName());
-            } else {
-                System.out.println((i + 1) + ".[ ] " + taskList[i].getName());
-            }
+            System.out.println((i+1) + ". " + taskList[i].toString());
         }
+        System.out.println(LINE);
+    }
+
+    public static void sendAddTaskMessage(Task task, int count) {
+        System.out.println(LINE);
+        System.out.println("Got it. I've added this task:");
+        System.out.println(task.toString());
+        if (count == 1) {
+            System.out.println("Now you have 1 task in the list.");
+        } else {
+            System.out.println("Now you have " + count + " tasks in the list.");
+        }
+        System.out.println(LINE);
+    }
+
+    public static void sendDeleteTaskMessage(Task task, int count) {
+        System.out.println(LINE);
+        System.out.println("Got it. I've deleted this task:");
+        System.out.println(task.toString());
+        if (count == 1) {
+            System.out.println("Now you have 1 task in the list.");
+        } else {
+            System.out.println("Now you have " + count + " tasks in the list.");
+        }
+        System.out.println(LINE);
+    }
+
+    public static void sendMarkMessage(Task task) {
+        System.out.println(LINE);
+        System.out.println("Nice! I've marked this task as done:");
+        System.out.println(task.toString());
+        System.out.println(LINE);
+    }
+
+    public static void sendUnmarkMessage(Task task) {
+        System.out.println(LINE);
+        System.out.println("OK, I've marked this task as not done yet:");
+        System.out.println(task.toString());
         System.out.println(LINE);
     }
 }

@@ -1,9 +1,12 @@
 public class List {
+
     private Task[] list;
     private int count;
 
+    private final int MAX_LIST_LENGTH = 100;
+
     public List() {
-        list = new Task[100];
+        list = new Task[MAX_LIST_LENGTH];
         count = 0;
     }
 
@@ -15,31 +18,44 @@ public class List {
         return count;
     }
 
-    public void addToList(String message) {
-        Task newTask = new Task(message);
+    public void addToDoToList(String task) {
+        ToDo newTask = new ToDo(task);
         list[count] = newTask;
         count++;
-        MessageHandler.sendMessage("Added Task: " + message);
+        MessageHandler.sendAddTaskMessage(newTask, count);
+    }
+
+    public void addDeadlineToList(String task, String deadline) {
+        Deadline newTask = new Deadline(task, deadline);
+        list[count] = newTask;
+        count++;
+        MessageHandler.sendAddTaskMessage(newTask, count);
+    }
+
+    public void addEventToList(String task, String start, String end) {
+        Event newTask = new Event(task, start, end);
+        list[count] = newTask;
+        count++;
+        MessageHandler.sendAddTaskMessage(newTask, count);
+    }
+
+    public void deleteFromList(int taskNumber) {
+        Task deletedTask = list[taskNumber - 1];
+        for (int i = taskNumber - 1; i < count - 1; i++) {
+            list[i] = list[i + 1];
+        }
+        list[count - 1] = null;
+        count--;
+        MessageHandler.sendDeleteTaskMessage(deletedTask, count);
     }
 
     public void mark(int taskNumber) {
         list[taskNumber - 1].setDone(true);
-        MessageHandler.sendMessage("Nice! I've marked this task as done:", "[X] " + list[taskNumber - 1].getName());
-        return;
+        MessageHandler.sendMarkMessage(list[taskNumber - 1]);
     }
 
     public void unmark(int taskNumber) {
         list[taskNumber - 1].setDone(false);
-        MessageHandler.sendMessage("OK, I've marked this task as not done yet:", "[ ] " + list[taskNumber - 1].getName());
-        return;
-    }
-
-    public void deleteFromList(int taskNumber) {
-        String deletedTask = list[taskNumber - 1].getName();
-        for (int i = taskNumber - 1; i < count; i++) {
-            list[i] = list[i + 1];
-        }
-        count--;
-        MessageHandler.sendMessage("Deleted Task: " + deletedTask);
+        MessageHandler.sendUnmarkMessage(list[taskNumber - 1]);
     }
 }
