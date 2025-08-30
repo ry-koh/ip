@@ -3,7 +3,7 @@ public class List {
     private Task[] list;
     private int count;
 
-    private final int MAX_LIST_LENGTH = 100;
+    static final int MAX_LIST_LENGTH = 100;
 
     public List() {
         list = new Task[MAX_LIST_LENGTH];

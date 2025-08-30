@@ -2,49 +2,68 @@ import java.util.Scanner;
 
 public class Hero {
     public static void main(String[] args) {
-        MessageHandler.sendMessage("Hello! I'm Hero", "What can I do for you?");
+        sendWelcomeMessage();
 
         List tasks = new List();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            String input = scanner.nextLine();
+            String input = readInput(scanner);
+            if (input.isEmpty()) {
+                continue;
+            }
 
-            // Extract command
             String[] parts = input.split(" ", 2);
-
-            // Convert command to lower case
             String command = parts[0].toLowerCase();
+            String content = parts.length > 1 ? parts[1] : "";
 
-            // End program command
             if (command.equals("bye")) {
                 break;
             }
 
-            switch (command) {
-            case "list":
-                CommandHandler.handleList(tasks);
-                break;
-            case "mark":
-                CommandHandler.handleMark(tasks, parts[1]);
-                break;
-            case "unmark":
-                CommandHandler.handleUnmark(tasks, parts[1]);
-                break;
-            case "delete":
-                CommandHandler.handleDelete(tasks, parts[1]);
-                break;
-            case "todo":
-            case "deadline":
-            case "event":
-                CommandHandler.handleAddToList(tasks, parts[0], parts[1]);
-                break;
-            default:
-                MessageHandler.sendMessage("Unknown command");
-                break;
-            }
+            executeCommand(tasks, command, content);
         }
         scanner.close();
+        sendExitMessage();
+    }
+
+    private static void sendWelcomeMessage() {
+        MessageHandler.sendMessage("Hello! I'm Hero", "What can I do for you?");
+    }
+
+    private static void sendExitMessage() {
         MessageHandler.sendMessage("Bye. Hope to see you again soon!");
+    }
+
+    private static String readInput(Scanner scanner) {
+        if (!scanner.hasNextLine()) {
+            return "";
+        }
+        return scanner.nextLine().trim();
+    }
+
+    private static void executeCommand(List tasks, String command, String content) {
+        switch (command) {
+        case "list":
+            CommandHandler.handleList(tasks);
+            break;
+        case "mark":
+            CommandHandler.handleMark(tasks, content);
+            break;
+        case "unmark":
+            CommandHandler.handleUnmark(tasks, content);
+            break;
+        case "delete":
+            CommandHandler.handleDelete(tasks, content);
+            break;
+        case "todo":
+        case "deadline":
+        case "event":
+            CommandHandler.handleAddToList(tasks, command, content);
+            break;
+        default:
+            MessageHandler.sendMessage("Unknown command");
+            break;
+        }
     }
 }
