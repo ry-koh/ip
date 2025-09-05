@@ -1,3 +1,7 @@
+package tasks;
+
+import ui.MessageHandler;
+
 public class TaskList {
 
     private Task[] taskList;

@@ -1,3 +1,7 @@
+package ui;
+
+import tasks.Task;
+
 public class MessageHandler {
     private static final String LINE = "____________________________________________________________";
 

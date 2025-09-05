@@ -1,3 +1,7 @@
+package parser;
+
+import exceptions.HeroException;
+
 public class Parser {
     public static final String COMMAND_BYE = "bye";
     public static final String COMMAND_LIST = "list";
