@@ -3,19 +3,19 @@ Hello! I'm Hero
 What can I do for you?
 ____________________________________________________________
 ____________________________________________________________
-List is empty!
+Task list is empty!
 ____________________________________________________________
 ____________________________________________________________
 Got it. I've added this task:
 [T][ ] borrow book
-Now you have 1 task in the list.
+Now you have 1 task in the task list.
 ____________________________________________________________
 ____________________________________________________________
 Nice! I've marked this task as done:
 [T][X] borrow book
 ____________________________________________________________
 ____________________________________________________________
-Here are the tasks in your list:
+Here are the tasks in your task list:
 1. [T][X] borrow book
 ____________________________________________________________
 ____________________________________________________________
@@ -23,21 +23,21 @@ OK, I've marked this task as not done yet:
 [T][ ] borrow book
 ____________________________________________________________
 ____________________________________________________________
-Here are the tasks in your list:
+Here are the tasks in your task list:
 1. [T][ ] borrow book
 ____________________________________________________________
 ____________________________________________________________
 Got it. I've added this task:
 [D][ ] return book (by: Sunday)
-Now you have 2 tasks in the list.
+Now you have 2 tasks in the task list.
 ____________________________________________________________
 ____________________________________________________________
 Got it. I've added this task:
 [E][ ] project meeting (from: Mon 2pm | to: 4pm)
-Now you have 3 tasks in the list.
+Now you have 3 tasks in the task list.
 ____________________________________________________________
 ____________________________________________________________
-Here are the tasks in your list:
+Here are the tasks in your task list:
 1. [T][ ] borrow book
 2. [D][ ] return book (by: Sunday)
 3. [E][ ] project meeting (from: Mon 2pm | to: 4pm)
@@ -51,7 +51,7 @@ Nice! I've marked this task as done:
 [E][X] project meeting (from: Mon 2pm | to: 4pm)
 ____________________________________________________________
 ____________________________________________________________
-Here are the tasks in your list:
+Here are the tasks in your task list:
 1. [T][ ] borrow book
 2. [D][X] return book (by: Sunday)
 3. [E][X] project meeting (from: Mon 2pm | to: 4pm)

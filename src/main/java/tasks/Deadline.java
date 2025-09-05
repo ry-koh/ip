@@ -1,3 +1,5 @@
+package tasks;
+
 public class Deadline extends Task {
     private final String deadline;
 
@@ -6,6 +8,7 @@ public class Deadline extends Task {
         this.deadline = deadline;
     }
 
+    @Override
     public String toString() {
         if (done) {
             return "[D][X] " + name + " (by: " + deadline + ")";

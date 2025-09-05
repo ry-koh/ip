@@ -1,3 +1,7 @@
+package ui;
+
+import tasks.Task;
+
 public class MessageHandler {
     private static final String LINE = "____________________________________________________________";
 
@@ -9,13 +13,13 @@ public class MessageHandler {
         System.out.println(LINE);
     }
 
-    public static void sendList(int count, Task[] taskList) {
+    public static void sendTaskList(int count, Task[] taskList) {
         if (count == 0) {
-            sendMessage("List is empty!");
+            sendMessage("Task list is empty!");
             return;
         }
         System.out.println(LINE);
-        System.out.println("Here are the tasks in your list:");
+        System.out.println("Here are the tasks in your task list:");
         for (int i = 0; i < count; i++) {
             System.out.println((i+1) + ". " + taskList[i].toString());
         }
@@ -27,9 +31,9 @@ public class MessageHandler {
         System.out.println("Got it. I've added this task:");
         System.out.println(task.toString());
         if (count == 1) {
-            System.out.println("Now you have 1 task in the list.");
+            System.out.println("Now you have 1 task in the task list.");
         } else {
-            System.out.println("Now you have " + count + " tasks in the list.");
+            System.out.println("Now you have " + count + " tasks in the task list.");
         }
         System.out.println(LINE);
     }
@@ -39,9 +43,9 @@ public class MessageHandler {
         System.out.println("Got it. I've deleted this task:");
         System.out.println(task.toString());
         if (count == 1) {
-            System.out.println("Now you have 1 task in the list.");
+            System.out.println("Now you have 1 task in the task list.");
         } else {
-            System.out.println("Now you have " + count + " tasks in the list.");
+            System.out.println("Now you have " + count + " tasks in the task list.");
         }
         System.out.println(LINE);
     }
