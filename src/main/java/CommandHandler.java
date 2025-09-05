@@ -24,75 +24,16 @@ public class CommandHandler {
         }
     }
 
-    public static void handleAddToTaskList(TaskList tasks, String command, String content) {
-        switch (command) {
-        case "todo":
-            handleToDo(tasks, content);
-            break;
-        case "deadline":
-            handleDeadline(tasks, content);
-            break;
-        case "event":
-            handleEvent(tasks, content);
-            break;
-        }
+    public static void handleToDo(TaskList tasks, String description) {
+        tasks.addToDoToTaskList(description);
     }
 
-    private static void handleToDo(TaskList tasks, String content) {
-        // Check if task description is empty
-        if (content.trim().isEmpty()) {
-            MessageHandler.sendMessage("Please enter a task");
-            return;
-        }
-
-        tasks.addToDoToTaskList(content);
+    public static void handleDeadline(TaskList tasks, String description, String by) {
+        tasks.addDeadlineToTaskList(description, by);
     }
 
-    private static void handleDeadline(TaskList tasks, String content) {
-        // Check if content contains "/by"
-        if (!content.contains("/by")) {
-            MessageHandler.sendMessage("Please enter a deadline using '/by'");
-            return;
-        }
-
-        // Split the content into task and deadline
-        String[] parts = content.split("/by", 2);
-
-        // Check if both task and deadline are present and non-empty
-        if (parts.length < 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
-            MessageHandler.sendMessage("Invalid deadline format");
-            return;
-        }
-
-        tasks.addDeadlineToTaskList(parts[0].trim(), parts[1].trim());
-    }
-
-    private static void handleEvent(TaskList tasks, String content) {
-        // Check if content contains "/from" and "/by"
-        if (!content.contains("/from") || !content.contains("/to")) {
-            MessageHandler.sendMessage("Please enter an event using '/from' and '/to'");
-            return;
-        }
-
-        // Split the content into task and time range
-        String[] parts1 = content.split("/from", 2);
-
-        // Check if task and time range are present
-        if (parts1.length < 2 || parts1[0].trim().isEmpty() || parts1[1].trim().isEmpty()) {
-            MessageHandler.sendMessage("Invalid event format");
-            return;
-        }
-
-        // Split the time range into start and end
-        String[] parts2 = parts1[1].split("/to", 2);
-
-        // Check if both start and end are present and non-empty
-        if (parts2.length < 2 || parts2[0].trim().isEmpty() || parts2[1].trim().isEmpty()) {
-            MessageHandler.sendMessage("Invalid event format");
-            return;
-        }
-
-        tasks.addEventToTaskList(parts1[0].trim(), parts2[0].trim(), parts2[1].trim());
+    public static void handleEvent(TaskList tasks, String description, String from, String to) {
+        tasks.addEventToTaskList(description, from, to);
     }
 
     /**

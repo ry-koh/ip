@@ -9,19 +9,18 @@ public class Hero {
 
         while (true) {
             String input = readInput(scanner);
-            if (input.isEmpty()) {
-                continue;
+            try {
+                String[] parsedInput = Parser.parseInput(input);
+
+                if (parsedInput[0].equals("bye")) {
+                    break;
+                }
+
+                executeCommand(tasks, parsedInput);
+
+            } catch (HeroException e) {
+                MessageHandler.sendMessage(e.getMessage());
             }
-
-            String[] parts = input.split(" ", 2);
-            String command = parts[0].toLowerCase();
-            String content = parts.length > 1 ? parts[1] : "";
-
-            if (command.equals("bye")) {
-                break;
-            }
-
-            executeCommand(tasks, command, content);
         }
         scanner.close();
         sendExitMessage();
@@ -42,27 +41,28 @@ public class Hero {
         return scanner.nextLine().trim();
     }
 
-    private static void executeCommand(TaskList tasks, String command, String content) {
-        switch (command) {
+    private static void executeCommand(TaskList tasks, String[] parsedInput) {
+        switch (parsedInput[0]) {
         case "list":
             CommandHandler.handleTaskList(tasks);
             break;
         case "mark":
-            CommandHandler.handleMark(tasks, content);
+            CommandHandler.handleMark(tasks, parsedInput[1]);
             break;
         case "unmark":
-            CommandHandler.handleUnmark(tasks, content);
+            CommandHandler.handleUnmark(tasks, parsedInput[1]);
             break;
         case "delete":
-            CommandHandler.handleDelete(tasks, content);
+            CommandHandler.handleDelete(tasks, parsedInput[1]);
             break;
         case "todo":
-        case "deadline":
-        case "event":
-            CommandHandler.handleAddToTaskList(tasks, command, content);
+            CommandHandler.handleToDo(tasks, parsedInput[1]);
             break;
-        default:
-            MessageHandler.sendMessage("Unknown command");
+        case "deadline":
+            CommandHandler.handleDeadline(tasks, parsedInput[1], parsedInput[2]);
+            break;
+        case "event":
+            CommandHandler.handleEvent(tasks, parsedInput[1], parsedInput[2], parsedInput[3]);
             break;
         }
     }

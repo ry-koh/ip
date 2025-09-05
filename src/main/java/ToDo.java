@@ -4,6 +4,7 @@ public class ToDo extends Task {
         super(task);
     }
 
+    @Override
     public String toString() {
         if (done) {
             return "[T][X] " + name;

@@ -8,6 +8,7 @@ public class Event extends Task {
         this.end = end;
     }
 
+    @Override
     public String toString() {
         if (done) {
             return "[E][X] " + name + " (from: " + start + " | to: " + end + ")";

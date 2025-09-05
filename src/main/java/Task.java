@@ -7,14 +7,11 @@ public class Task {
         this.done = false;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setDone(Boolean done) {
         this.done = done;
     }
 
+    @Override
     public String toString() {
         if (done) {
             return "[X] " + name;
