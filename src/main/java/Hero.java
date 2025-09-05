@@ -4,7 +4,7 @@ public class Hero {
     public static void main(String[] args) {
         sendWelcomeMessage();
 
-        List tasks = new List();
+        TaskList tasks = new TaskList();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -42,10 +42,10 @@ public class Hero {
         return scanner.nextLine().trim();
     }
 
-    private static void executeCommand(List tasks, String command, String content) {
+    private static void executeCommand(TaskList tasks, String command, String content) {
         switch (command) {
         case "list":
-            CommandHandler.handleList(tasks);
+            CommandHandler.handleTaskList(tasks);
             break;
         case "mark":
             CommandHandler.handleMark(tasks, content);
@@ -59,7 +59,7 @@ public class Hero {
         case "todo":
         case "deadline":
         case "event":
-            CommandHandler.handleAddToList(tasks, command, content);
+            CommandHandler.handleAddToTaskList(tasks, command, content);
             break;
         default:
             MessageHandler.sendMessage("Unknown command");
