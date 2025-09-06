@@ -1,7 +1,7 @@
 package commands;
 
 import tasks.TaskList;
-import ui.MessageHandler;
+import messages.MessageHandler;
 
 public class CommandHandler {
     public static void handleTaskList(TaskList taskList) {
