@@ -1,6 +1,6 @@
 package tasks;
 
-import ui.MessageHandler;
+import messages.MessageHandler;
 
 public class TaskList {
 
