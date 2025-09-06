@@ -2,7 +2,7 @@ import exceptions.HeroException;
 import parser.Parser;
 import tasks.TaskList;
 import commands.CommandHandler;
-import ui.MessageHandler;
+import messages.MessageHandler;
 
 import java.util.Scanner;
 
