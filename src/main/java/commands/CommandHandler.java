@@ -5,7 +5,7 @@ import messages.MessageHandler;
 
 public class CommandHandler {
     public static void handleTaskList(TaskList taskList) {
-        taskList.getTaskList();
+        MessageHandler.sendTaskList(taskList);
     }
 
     public static void handleMark(TaskList taskList, String content) {

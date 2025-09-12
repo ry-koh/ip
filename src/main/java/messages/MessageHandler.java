@@ -1,6 +1,7 @@
 package messages;
 
 import tasks.Task;
+import tasks.TaskList;
 
 public class MessageHandler {
     private static final String LINE = "____________________________________________________________";
@@ -13,15 +14,15 @@ public class MessageHandler {
         System.out.println(LINE);
     }
 
-    public static void sendTaskList(int count, Task[] taskList) {
-        if (count == 0) {
+    public static void sendTaskList(TaskList taskList) {
+        if (taskList.getCount() == 0) {
             sendMessage("Task list is empty!");
             return;
         }
         System.out.println(LINE);
         System.out.println("Here are the tasks in your task list:");
-        for (int i = 0; i < count; i++) {
-            System.out.println((i+1) + ". " + taskList[i].toString());
+        for (int i = 0; i < taskList.getCount(); i++) {
+            System.out.println((i+1) + ". " + taskList.getTask(i).toString());
         }
         System.out.println(LINE);
     }
