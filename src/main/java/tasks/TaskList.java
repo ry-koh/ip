@@ -1,5 +1,7 @@
 package tasks;
 
+import java.util.ArrayList;
+
 import messages.MessageHandler;
 
 public class TaskList {
@@ -12,6 +14,14 @@ public class TaskList {
     public TaskList() {
         taskList = new Task[MAX_TASKLIST_LENGTH];
         count = 0;
+    }
+
+    public TaskList(ArrayList<Task> tasks) {
+        this.taskList = new Task[MAX_TASKLIST_LENGTH];
+        this.count = 0;
+        for (Task task : tasks) {
+            addTask(task);
+        }
     }
 
     public void getTaskList() {
@@ -61,5 +71,18 @@ public class TaskList {
     public void unmark(int taskNumber) {
         taskList[taskNumber - 1].setDone(false);
         MessageHandler.sendUnmarkMessage(taskList[taskNumber - 1]);
+    }
+
+    public Task getTaskWithIndex(int index) {
+        return taskList[index];
+    }
+
+    private void addTask(Task task) {
+        if (count < MAX_TASKLIST_LENGTH) {
+            taskList[count] = task;
+            count++;
+        } else {
+            MessageHandler.sendMessage("Task list is full!");
+        }
     }
 }

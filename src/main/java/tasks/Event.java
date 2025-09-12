@@ -11,6 +11,14 @@ public class Event extends Task {
     }
 
     @Override
+    public String toSaveString() {
+        if (done) {
+            return "E|1|" + name + "|" + start + "|" + end;
+        }
+        return "E|0|" + name + "|" + start + "|" + end;
+    }
+
+    @Override
     public String toString() {
         if (done) {
             return "[E][X] " + name + " (from: " + start + " | to: " + end + ")";
