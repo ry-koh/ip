@@ -13,6 +13,10 @@ public class Task {
         this.done = done;
     }
 
+    public String toSaveString() {
+        return "";
+    }
+
     @Override
     public String toString() {
         if (done) {

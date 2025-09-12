@@ -9,6 +9,14 @@ public class Deadline extends Task {
     }
 
     @Override
+    public String toSaveString() {
+        if (done) {
+            return "D|1|" + name + "|" + deadline;
+        }
+        return "D|0|" + name + "|" + deadline;
+    }
+
+    @Override
     public String toString() {
         if (done) {
             return "[D][X] " + name + " (by: " + deadline + ")";

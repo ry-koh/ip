@@ -12,6 +12,10 @@ public class TaskList {
         taskList = new ArrayList<>();
     }
 
+    public TaskList(ArrayList<Task> taskList) {
+        this.taskList = taskList;
+    }
+
     public Task getTask(int index) {
         return taskList.get(index);
     }
