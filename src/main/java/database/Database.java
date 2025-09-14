@@ -83,9 +83,9 @@ public class Database {
             task = new Deadline(taskDescription, deadline);
             break;
         case "E":
-            String from = parts[3];
-            String to = parts[4];
-            task = new Event(taskDescription, from, to);
+            String start = parts[3];
+            String end = parts[4];
+            task = new Event(taskDescription, start, end);
             break;
         default:
             return null;

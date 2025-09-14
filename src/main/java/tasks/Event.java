@@ -12,7 +12,7 @@ public class Event extends Task {
 
     @Override
     public String toSaveString() {
-        if (done) {
+        if (isDone) {
             return "E|1|" + name + "|" + start + "|" + end;
         }
         return "E|0|" + name + "|" + start + "|" + end;
@@ -20,7 +20,7 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        if (done) {
+        if (isDone) {
             return "[E][X] " + name + " (from: " + start + " | to: " + end + ")";
         }
         return "[E][ ] " + name + " (from: " + start + " | to: " + end + ")";

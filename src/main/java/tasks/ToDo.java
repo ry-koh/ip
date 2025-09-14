@@ -8,7 +8,7 @@ public class ToDo extends Task {
 
     @Override
     public String toSaveString() {
-        if (done) {
+        if (isDone) {
             return "T|1|" + name;
         }
         return "T|0|" + name;
@@ -16,7 +16,7 @@ public class ToDo extends Task {
 
     @Override
     public String toString() {
-        if (done) {
+        if (isDone) {
             return "[T][X] " + name;
         }
         return "[T][ ] " + name;

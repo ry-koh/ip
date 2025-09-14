@@ -10,7 +10,7 @@ public class Deadline extends Task {
 
     @Override
     public String toSaveString() {
-        if (done) {
+        if (isDone) {
             return "D|1|" + name + "|" + deadline;
         }
         return "D|0|" + name + "|" + deadline;
@@ -18,7 +18,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        if (done) {
+        if (isDone) {
             return "[D][X] " + name + " (by: " + deadline + ")";
         }
         return "[D][ ] " + name + " (by: " + deadline + ")";

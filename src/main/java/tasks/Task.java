@@ -2,15 +2,15 @@ package tasks;
 
 public class Task {
     protected final String name;
-    protected Boolean done;
+    protected Boolean isDone;
 
     public Task(String name) {
         this.name = name;
-        this.done = false;
+        this.isDone = false;
     }
 
-    public void setDone(Boolean done) {
-        this.done = done;
+    public void setDone(Boolean isDone) {
+        this.isDone = isDone;
     }
 
     public String toSaveString() {
@@ -19,7 +19,7 @@ public class Task {
 
     @Override
     public String toString() {
-        if (done) {
+        if (isDone) {
             return "[X] " + name;
         }
         return "[ ] " + name;
