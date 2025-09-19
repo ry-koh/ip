@@ -12,11 +12,11 @@
 
 ## FUNCTIONS USAGE
 
-### Add a To Do task
+### 1) Add a To Do task
 
 Usage: ```todo [description]```
 
-Example: ```todo borrow book```
+> Example: ```todo borrow book```
 
 Output:
 ```
@@ -27,11 +27,11 @@ Now you have 1 task in the task list.
 ____________________________________________________________
 ```
 
-### Add a Deadline task
+### 2) Add a Deadline task
 
 Usage: ```deadline [description] /by [deadline]```
 
-Example: ```deadline return book /by Sunday```
+> Example: ```deadline return book /by Sunday```
 
 Output:
 ```
@@ -42,11 +42,11 @@ Now you have 2 tasks in the task list.
 ____________________________________________________________
 ```
 
-### Add an Event task
+### 3) Add an Event task
 
 Usage: ```event [description] /from [start] /to [end]```
 
-Example: ```event project meeting /from Mon 2pm /to 4pm```
+> Example: ```event project meeting /from Mon 2pm /to 4pm```
 
 Output:
 ```
@@ -57,7 +57,7 @@ Now you have 3 tasks in the task list.
 ____________________________________________________________
 ```
 
-### List your tasks
+### 4) List your tasks
 
 Usage: ```list```
 
@@ -71,11 +71,11 @@ Here are the tasks in your task list:
 ____________________________________________________________
 ```
 
-### Mark your tasks as done
+### 5) Mark your tasks as done
 
 Usage: ```mark [task number]```
 
-Example: ```mark 3```
+> Example: ```mark 3```
 
 Output:
 ```
@@ -85,11 +85,11 @@ Nice! I've marked this task as done:
 ____________________________________________________________
 ```
 
-### Unmark your tasks as not done
+### 6) Unmark your tasks as not done
 
 Usage: ```unmark [task number]```
 
-Example: ```unmark 3```
+> Example: ```unmark 3```
 
 Output:
 ```
@@ -99,11 +99,11 @@ Nice! I've marked this task as done:
 ____________________________________________________________
 ```
 
-### Delete your tasks
+### 7) Delete your tasks
 
 Usage: ```delete [task number]```
 
-Example: ```delete 1```
+> Example: ```delete 1```
 
 Output:
 ```
@@ -115,11 +115,11 @@ ____________________________________________________________
 ```
 
 
-### Find your tasks
+### 8) Find your tasks
 
 Usage: ```find [text]```
 
-Example: ```find book```
+> Example: ```find book```
 
 Output:
 ```
@@ -129,11 +129,11 @@ Here are the matching tasks in your list:
 ____________________________________________________________
 ```
 
-### Exit the program
+### 9) Exit the program
 
 Usage: ```bye```
 
-Output: 
+Output:
 ```
 ____________________________________________________________
 Bye. Hope to see you again soon!
