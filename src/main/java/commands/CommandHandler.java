@@ -41,6 +41,10 @@ public class CommandHandler {
         taskList.addEventToTaskList(description, from, to);
     }
 
+    public static void handleFind(TaskList taskList, String text) {
+        taskList.find(text);
+    }
+
     /**
      * Parses a task number and validates it.
      *
@@ -48,7 +52,7 @@ public class CommandHandler {
      * @param max   the maximum valid task number
      * @return the parsed task number if valid, or -1 if invalid
      */
-    public static int parseAndValidateTaskNumber(String input, int max) {
+    private static int parseAndValidateTaskNumber(String input, int max) {
         int taskNumber;
 
         try {

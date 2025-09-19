@@ -100,6 +100,8 @@ public class Hero {
             case "event":
                 CommandHandler.handleEvent(taskList, parsedInput[1], parsedInput[2], parsedInput[3]);
                 break;
+            case "find":
+                CommandHandler.handleFind(taskList, parsedInput[1]);
             }
             database.save(taskList);
         } catch (IOException e) {

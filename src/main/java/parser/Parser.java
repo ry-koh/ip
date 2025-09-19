@@ -11,6 +11,7 @@ public class Parser {
     public static final String COMMAND_TODO = "todo";
     public static final String COMMAND_DEADLINE = "deadline";
     public static final String COMMAND_EVENT = "event";
+    public static final String COMMAND_FIND = "find";
 
     public static final String DELIMITER_SPACE = " ";
     public static final String DELIMITER_BY = "/by";
@@ -36,6 +37,8 @@ public class Parser {
         case COMMAND_UNMARK:
         case COMMAND_DELETE:
             return parseNumberedCommand(content, command);
+        case COMMAND_FIND:
+            return parseFindCommand(content, command);
         case COMMAND_TODO:
             return parseToDoCommand(content, command);
         case COMMAND_DEADLINE:
@@ -65,6 +68,23 @@ public class Parser {
         } catch (NumberFormatException e) {
             // Check that string is a valid integer
             throw new HeroException("The " + command + " command must be followed by a valid number!");
+        }
+
+        return new String[]{command, content};
+    }
+
+    /**
+     * Parses the find command.
+     *
+     * @param command The command string.
+     * @param content The content following the command.
+     * @return A String array with the command and the find text.
+     * @throws HeroException If the content is empty.
+     */
+    private static String[] parseFindCommand(String content, String command) throws HeroException {
+        // Check if find text is not empty
+        if (content.isEmpty()) {
+            throw new HeroException("What are you finding?");
         }
 
         return new String[]{command, content};

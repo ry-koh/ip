@@ -1,5 +1,7 @@
 package messages;
 
+import java.util.ArrayList;
+
 import tasks.Task;
 import tasks.TaskList;
 
@@ -62,6 +64,15 @@ public class MessageHandler {
         System.out.println(LINE);
         System.out.println("OK, I've marked this task as not done yet:");
         System.out.println(task.toString());
+        System.out.println(LINE);
+    }
+
+    public static void sendFindList(ArrayList<Task> findList) {
+        System.out.println(LINE);
+        System.out.println("Here are the matching tasks in your list:");
+        for (int i = 0; i < findList.size(); i++) {
+            System.out.println((i+1) + ". " + findList.get(i).toString());
+        }
         System.out.println(LINE);
     }
 }

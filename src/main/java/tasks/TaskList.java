@@ -57,4 +57,18 @@ public class TaskList {
         taskList.get(taskNumber - 1).setDone(false);
         MessageHandler.sendUnmarkMessage(taskList.get(taskNumber - 1));
     }
+
+    public void find(String text) {
+        ArrayList<Task> findList = new ArrayList<>();
+        for (Task task : taskList) {
+            if (task.getName().toLowerCase().contains(text.toLowerCase())) {
+                findList.add(task);
+            }
+        }
+        if (!findList.isEmpty()) {
+            MessageHandler.sendFindList(findList);
+        } else {
+            MessageHandler.sendMessage("No such task!");
+        }
+    }
 }
