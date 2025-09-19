@@ -2,6 +2,10 @@ package parser;
 
 import exceptions.HeroException;
 
+/**
+ * Handles the parsing of user input for the Hero application
+ * This class validates commands and extracts the necessary information to be executed
+ */
 public class Parser {
     public static final String COMMAND_BYE = "bye";
     public static final String COMMAND_LIST = "list";
@@ -18,6 +22,13 @@ public class Parser {
     public static final String DELIMITER_FROM = "/from";
     public static final String DELIMITER_TO = "/to";
 
+    /**
+     * Parses the user's input string and returns a formatted command and its arguments
+     *
+     * @param input The user's input string
+     * @return A String array containing the command and its arguments
+     * @throws HeroException If the input is empty or the command is unknown
+     */
     public static String[] parseInput(String input) throws HeroException {
         if (input == null || input.trim().isEmpty()) {
             throw new HeroException("Input cannot be empty!");
@@ -91,7 +102,7 @@ public class Parser {
     }
 
     /**
-     * Parses the todo command.
+     * Parses the to-do command.
      *
      * @param command The command string.
      * @param content The content following the command.
