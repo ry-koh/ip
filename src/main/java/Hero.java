@@ -9,11 +9,19 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Main class for the Hero application
+ * It handles the application startup, user input loop, and command execution
+ */
 public class Hero {
     private static final String FILE_PATH = "./database/database.txt";
     private static Database database;
     private static TaskList taskList;
 
+    /**
+     * The main entry point of the Hero application
+     * @param args Command line arguments (not used)
+     */
     public static void main(String[] args) {
         sendWelcomeMessage();
 
@@ -61,14 +69,25 @@ public class Hero {
         sendExitMessage();
     }
 
+    /**
+     * Sends a welcome message to user
+     */
     private static void sendWelcomeMessage() {
         MessageHandler.sendMessage("Hello! I'm Hero", "What can I do for you?");
     }
 
+    /**
+     * Sends an exit message to user
+     */
     private static void sendExitMessage() {
         MessageHandler.sendMessage("Bye. Hope to see you again soon!");
     }
 
+    /**
+     * Reads a single line of input from the scanner
+     * @param scanner The Scanner object to read from
+     * @return The trimmed input string
+     */
     private static String readInput(Scanner scanner) {
         if (!scanner.hasNextLine()) {
             return "";
@@ -76,6 +95,10 @@ public class Hero {
         return scanner.nextLine().trim();
     }
 
+    /**
+     * Executes the appropriate command based on the parsed input
+     * @param parsedInput The array of strings containing the command and its arguments
+     */
     private static void executeCommand(String[] parsedInput) {
         try {
             switch (parsedInput[0]) {
