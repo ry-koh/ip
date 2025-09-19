@@ -16,7 +16,7 @@
 
 Usage: ```todo [description]```
 
-Example: ```todo borrow book```
+> Example: ```todo borrow book```
 
 Output:
 ```
@@ -31,7 +31,7 @@ ____________________________________________________________
 
 Usage: ```deadline [description] /by [deadline]```
 
-Example: ```deadline return book /by Sunday```
+> Example: ```deadline return book /by Sunday```
 
 Output:
 ```
@@ -46,7 +46,7 @@ ____________________________________________________________
 
 Usage: ```event [description] /from [start] /to [end]```
 
-Example: ```event project meeting /from Mon 2pm /to 4pm```
+> Example: ```event project meeting /from Mon 2pm /to 4pm```
 
 Output:
 ```
@@ -75,7 +75,7 @@ ____________________________________________________________
 
 Usage: ```mark [task number]```
 
-Example: ```mark 3```
+> Example: ```mark 3```
 
 Output:
 ```
@@ -89,7 +89,7 @@ ____________________________________________________________
 
 Usage: ```unmark [task number]```
 
-Example: ```unmark 3```
+> Example: ```unmark 3```
 
 Output:
 ```
@@ -103,7 +103,7 @@ ____________________________________________________________
 
 Usage: ```delete [task number]```
 
-Example: ```delete 1```
+> Example: ```delete 1```
 
 Output:
 ```
@@ -119,7 +119,7 @@ ____________________________________________________________
 
 Usage: ```find [text]```
 
-Example: ```find book```
+> Example: ```find book```
 
 Output:
 ```
@@ -129,7 +129,7 @@ Here are the matching tasks in your list:
 ____________________________________________________________
 ```
 
-### Exit the program
+### 9) Exit the program
 
 Usage: ```bye```
 
