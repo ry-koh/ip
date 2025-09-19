@@ -1,18 +1,20 @@
 # WELCOME TO HERO, THE BEST CHAT BOT
 
 ## FUNCTIONS
-1) Add a To Do task
-2) Add a Deadline task
-3) Add an Event task
-4) List your tasks
-5) Mark your tasks as done
-6) Mark your tasks as not done
-7) Delete your tasks
-8) Find your tasks
+- [Add a To Do task](#add-a-to-do-task)
+- [Add a Deadline task](#add-a-deadline-task)
+- [Add an Event task](#add-an-event-task)
+- [List your tasks](#list-your-tasks)
+- [Mark your tasks as done](#mark-your-tasks-as-done)
+- [Unmark your tasks as not done](#unmark-your-tasks-as-not-done)
+- [Delete your tasks](#delete-your-tasks)
+- [Find your tasks](#find-your-tasks)
+- [Exit the program](#exit-the-program)
+
 
 ## FUNCTIONS USAGE
 
-### 1) Add a To Do task
+### Add a To Do task
 
 Usage: ```todo [description]```
 
@@ -27,7 +29,7 @@ Now you have 1 task in the task list.
 ____________________________________________________________
 ```
 
-### 2) Add a Deadline task
+### Add a Deadline task
 
 Usage: ```deadline [description] /by [deadline]```
 
@@ -42,7 +44,7 @@ Now you have 2 tasks in the task list.
 ____________________________________________________________
 ```
 
-### 3) Add an Event task
+### Add an Event task
 
 Usage: ```event [description] /from [start] /to [end]```
 
@@ -57,7 +59,7 @@ Now you have 3 tasks in the task list.
 ____________________________________________________________
 ```
 
-### 4) List your tasks
+### List your tasks
 
 Usage: ```list```
 
@@ -71,7 +73,7 @@ Here are the tasks in your task list:
 ____________________________________________________________
 ```
 
-### 5) Mark your tasks as done
+### Mark your tasks as done
 
 Usage: ```mark [task number]```
 
@@ -85,7 +87,7 @@ Nice! I've marked this task as done:
 ____________________________________________________________
 ```
 
-### 6) Unmark your tasks as not done
+### Unmark your tasks as not done
 
 Usage: ```unmark [task number]```
 
@@ -99,7 +101,7 @@ Nice! I've marked this task as done:
 ____________________________________________________________
 ```
 
-### 7) Delete your tasks
+### Delete your tasks
 
 Usage: ```delete [task number]```
 
@@ -115,7 +117,7 @@ ____________________________________________________________
 ```
 
 
-### 8) Find your tasks
+### Find your tasks
 
 Usage: ```find [text]```
 
@@ -129,7 +131,7 @@ Here are the matching tasks in your list:
 ____________________________________________________________
 ```
 
-### 9) Exit the program
+### Exit the program
 
 Usage: ```bye```
 
